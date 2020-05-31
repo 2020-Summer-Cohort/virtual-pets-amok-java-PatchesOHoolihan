@@ -1,6 +1,6 @@
 package pets_amok;
 
-public  class VirtualDog extends VirtualPet {
+public  class VirtualDog extends VirtualPet implements Walkable{
 
 
 
@@ -9,8 +9,10 @@ public  class VirtualDog extends VirtualPet {
         super(name, health, sadness);
 
     }
-        public void walk () {
-            sadness -= 10;
-        }
 
+
+    @Override
+    public void walkAllTheDogs() {
+
+    }
 }

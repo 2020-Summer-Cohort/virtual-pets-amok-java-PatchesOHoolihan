@@ -3,7 +3,7 @@ package pets_amok;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class VirtualPetShelter implements Biological, Robotic {
+public class VirtualPetShelter implements Biological, Robotic,Walkable {
     Collection<VirtualPet> pets = new ArrayList<>();
 
     public void admit(VirtualPet petToAdmit) {
@@ -43,11 +43,20 @@ public class VirtualPetShelter implements Biological, Robotic {
                 }
             }
         }
+
     public Collection<VirtualPet> showAllPets(){
         return pets;
     }
 
+    @Override
+    public void walkAllTheDogs() {
+        for(VirtualPet dog: pets){
+            if(dog instanceof Walkable){
+                ((Walkable)dog).walkAllTheDogs();
+            }
         }
+    }
+}
 
 
 
