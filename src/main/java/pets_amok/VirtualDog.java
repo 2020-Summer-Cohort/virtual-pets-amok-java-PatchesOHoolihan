@@ -11,8 +11,10 @@ public  class VirtualDog extends VirtualPet implements Walkable{
     }
 
 
+
+
     @Override
-    public void walkAllTheDogs() {
+    public void walk() {
 
     }
 }

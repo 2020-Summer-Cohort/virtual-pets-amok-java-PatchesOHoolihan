@@ -10,6 +10,9 @@ public class VirtualPetShelter implements Biological, Robotic,Walkable {
         pets.add(petToAdmit);
     }
 
+    public void adoptAPet(String name){
+        pets.remove(name);
+    }
     public Collection<VirtualPet> retrieveAllPets() {
         return pets;
     }
@@ -49,13 +52,15 @@ public class VirtualPetShelter implements Biological, Robotic,Walkable {
     }
 
     @Override
-    public void walkAllTheDogs() {
+    public void walk() {
         for(VirtualPet dog: pets){
             if(dog instanceof Walkable){
-                ((Walkable)dog).walkAllTheDogs();
+                ((Walkable) dog).walk();
+
             }
         }
     }
+
 }
 
 

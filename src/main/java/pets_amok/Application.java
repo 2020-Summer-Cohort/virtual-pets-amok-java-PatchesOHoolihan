@@ -21,60 +21,71 @@ public class Application implements Biological, Robotic {
         System.out.println("As the new vet-tech it is your job to care for the pets as well as handle adoptions and intakes");
         System.out.println();
 
-
         Scanner scanner = new Scanner(System.in);
         String userSelection;
-        printPetStatus(myShelter);
+
+        while(true){
+            printPetStatus(myShelter);
+            System.out.println();
+            System.out.println("If you would like to feed all the biological pets press 1, \n " +
+                    "Press 2 if you'd like to enter a particular pet name to see their status ");
 
 
+
+
+
+
+        userSelection = scanner.nextLine();
+        if(userSelection.equals("1")){
+            myShelter.feedTheBiologicalPets();
+            System.out.println("You fed everyone who wants to eat");
+        }
+        else if(userSelection.equals("2")){
+            System.out.println("Please enter the pet's name");
+            String petName = scanner.nextLine();
+            System.out.println(myShelter);
+        }
+        }
     }
 
     private static void printPetStatus(VirtualPetShelter shelter) {
         System.out.println("This is the status of your pets: ");
 
-
         Collection<VirtualPet> pets = shelter.showAllPets();
 
-
-        for (VirtualPet bioDog : pets)
-            if (bioDog instanceof VirtualBioDog) {
-                ( (VirtualBioDog) bioDog ).getCageDirtLevel();
-                System.out.println(bioDog.getName() + "\n" +
-                        "\tHealth: " + bioDog.getHealth() +
-                        "\tSadness: " + bioDog.getSadness() +
-                        "\tCage Dirt Level: " + ( (VirtualBioDog) bioDog ).getCageDirtLevel());
-                for (VirtualPet bioCat : pets)
-                    if (bioCat instanceof VirtualBioCat) {
-                        System.out.println(bioCat.getName() + "\n" +
-                                "\tHealth: " + bioCat.getHealth() +
-                                "\tSadness: " + bioCat.getSadness());
-
-
-                        for (VirtualPet roboticDog : pets)
-                            if (roboticDog instanceof VirtualRoboDog) {
-                                ( (VirtualRoboDog) roboticDog ).getNeedForOil();
-                                System.out.println(( roboticDog.getName() + "\n" +
-                                        "\tHealth: " + roboticDog.getHealth() +
-                                        "\tSadness: " + roboticDog.getSadness() +
-                                        "\tNeed For Oil: " + ( (VirtualRoboDog) roboticDog ).getNeedForOil() ));
-
-
-                            }
-                        for (VirtualPet roboticCat : pets)
-                            if (roboticCat instanceof VirtualRoboCat) {
-                                ( (VirtualRoboCat) roboticCat ).getNeedForOil();
-                                System.out.println(( roboticCat ).getName() + "\n" +
-                                        "\tHeatlh: " + roboticCat.getHealth() +
-                                        "\tSadness: " + roboticCat.getSadness() +
-                                        "\tNeed For Oil: " + ( (VirtualRoboCat) roboticCat ).getNeedForOil());
-
-
-                            }
-                    }
-
-
+        for (VirtualPet pet : pets) {
+            if (pet instanceof VirtualBioDog) {
+                ( (VirtualBioDog) pet ).getCageDirtLevel();
+                System.out.println(pet.getName() + "\n" +
+                        "\tHunger: " + ( (VirtualBioDog) pet ).getHunger() +
+                        "\tHealth: " + pet.getHealth() +
+                        "\tSadness: " + pet.getSadness() +
+                        "\tCage Dirt Level: " + ( (VirtualBioDog) pet ).getCageDirtLevel());
             }
-    }
+            if (pet instanceof VirtualBioCat) {
+                System.out.println(pet.getName() + "\n" +
+                        "\tHunger: " +( (VirtualBioCat) pet ).getHunger() +
+                        "\tHealth: " + pet.getHealth() +
+                        "\tSadness: " + pet.getSadness());
+            }
+                if (pet instanceof VirtualRoboDog) {
+                    ( (VirtualRoboDog) pet ).getNeedForOil();
+                    System.out.println(( pet.getName() + "\n" +
+                            "\tHealth: " + pet.getHealth() +
+                            "\tSadness: " + pet.getSadness() +
+                            "\tNeed For Oil: " + ( (VirtualRoboDog) pet ).getNeedForOil() ));
+                }
+                if (pet instanceof VirtualRoboCat) {
+                    ( (VirtualRoboCat) pet ).getNeedForOil();
+                    System.out.println(( pet ).getName() + "\n" +
+                            "\tHeatlh: " + pet.getHealth() +
+                            "\tSadness: " + pet.getSadness() +
+                            "\tNeed For Oil: " + ( (VirtualRoboCat) pet ).getNeedForOil());
+                }
+            }
+        }
+
+
     @Override
     public void feedTheBiologicalPets ( ) {
 

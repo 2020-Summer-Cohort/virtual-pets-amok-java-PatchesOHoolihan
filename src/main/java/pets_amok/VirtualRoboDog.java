@@ -1,6 +1,6 @@
 package pets_amok;
 
-public class VirtualRoboDog extends VirtualDog implements Robotic {
+public class VirtualRoboDog extends VirtualDog implements Robotic,Walkable {
     private int needForOil;
 
     public VirtualRoboDog(String name, int health, int sadness, int needForOil) {

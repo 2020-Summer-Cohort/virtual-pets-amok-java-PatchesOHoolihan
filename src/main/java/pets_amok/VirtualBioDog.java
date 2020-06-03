@@ -1,6 +1,6 @@
 package pets_amok;
 
-public class VirtualBioDog extends VirtualDog implements Biological{
+public class VirtualBioDog extends VirtualDog implements Biological,Walkable{
 
 
     private  int cageDirtLevel;
@@ -26,6 +26,7 @@ public class VirtualBioDog extends VirtualDog implements Biological{
 
     @Override
     public void feedTheBiologicalPets() {
+        hunger -= 10;
 
     }
 

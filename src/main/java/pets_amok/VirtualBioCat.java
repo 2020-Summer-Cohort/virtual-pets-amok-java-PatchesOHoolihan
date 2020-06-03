@@ -15,6 +15,7 @@ public class VirtualBioCat extends VirtualCat implements Biological{
 
     @Override
     public void feedTheBiologicalPets() {
+        hunger -= 10;
 
     }
 }

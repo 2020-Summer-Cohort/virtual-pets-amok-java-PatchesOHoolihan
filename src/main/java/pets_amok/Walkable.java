@@ -1,6 +1,6 @@
 package pets_amok;
 
 public interface Walkable {
-    public void walkAllTheDogs();
+    public void walk();
 
 }

@@ -20,4 +20,12 @@ public abstract class VirtualPet {
     public int getSadness() {
         return sadness;
     }
+    public void tick(){
+        sadness+=10;
+
+        if(sadness >=50) {
+            health-=10;
+
+        }
+    }
 }
