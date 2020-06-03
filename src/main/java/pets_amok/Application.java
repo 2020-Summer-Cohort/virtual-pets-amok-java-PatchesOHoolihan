@@ -3,6 +3,14 @@ package pets_amok;
 import java.util.Collection;
 import java.util.Scanner;
 
+// -Need some kind of game loop in the main method
+
+// -VirtualPet and it's child classes could be cleaned up. Look for instances where you have fields or methods duplicated between
+// different classes (for example hunger in both VirtualBio classes). Those fields and methods can be moved up to a superclass. You can
+// have multiple classes in your hierarchy (VirtualPet -> BioPet -> BioCat/BioDog)
+
+// -Tests are throwing an error. Need more coverage, particularly with the VirtualPetShelter
+
 public class Application implements Biological, Robotic {
     public static void main(String[] args) {
         VirtualBioDog hambone = new VirtualBioDog("Hambone", 20, 20, 20, 20);
